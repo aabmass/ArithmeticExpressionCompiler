@@ -34,6 +34,6 @@ namespace AEC {
             v.visitNumber(*this);
         }
     };
-};
+}
 
 #endif /* end of include guard: NUMBER_HPP_6HCA1OB7 */  

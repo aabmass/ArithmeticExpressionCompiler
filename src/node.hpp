@@ -28,6 +28,6 @@ namespace AEC {
         return os;
     }
 
-};
+}
 
 #endif /* end of include guard: NODE_CPP_NY056JSI */

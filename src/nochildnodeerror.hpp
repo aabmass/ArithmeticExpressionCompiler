@@ -8,6 +8,6 @@ namespace AEC {
         // use the what constructor from before
         using std::runtime_error::runtime_error;
     };
-};
+}
 
 #endif /* end of include guard: NOCHILDNODEERROR_HPP_GMVEHMAE */
