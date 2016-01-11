@@ -16,7 +16,7 @@ namespace AEC {
             num(num)
         { }
 
-        virtual std::shared_ptr<Node<NumberType>> getChild() {
+        virtual std::shared_ptr<Node<NumberType>> getChild(std::size_t) {
             // return a nullptr, no children
             throw NoChildNodeError("Number node's do not have any children to get or set");
         }
