@@ -8,7 +8,12 @@ int main(int argc, char *argv[]) {
 
     Number<double> n(2);
 
-    n.getChild(1);
+    try {
+        n.getChild(1);
+    }
+    catch(NoChildNodeError const& e) {
+        std::cout << "Caught expected error!!: " << e.what() << std::endl;
+    }
 
     std::cout << "Here is a number: " << n << std::endl;
 
