@@ -12,6 +12,9 @@ namespace AEC {
         std::shared_ptr<Node<NumberType>> left;
         std::shared_ptr<Node<NumberType>> right;
     public:
+        static const std::size_t LEFT = 0;
+        static const std::size_t RIGHT = 1;
+
         BinaryOperator(std::shared_ptr<Node<NumberType>> left,
                        std::shared_ptr<Node<NumberType>> right) :
             left(left),
@@ -22,7 +25,7 @@ namespace AEC {
 
         }
 
-        virtual std::shared_ptr<Node<NumberType>> getChild(std::size_t i) {
+        virtual std::shared_ptr<Node<NumberType>> getChild(std::size_t i) const {
             if (i > 1) {
                 throw NoChildNodeError("BinaryNodes have only 2 children, can not access "
                         + std::to_string(i) + "th child");
@@ -45,7 +48,7 @@ namespace AEC {
             v.visitBinaryOperator(*this);
         }
 
-        virtual NumberType perform(NumberType left, NumberType right) = 0;
+        virtual NumberType perform(NumberType left, NumberType right) const = 0;
     };
 }
 

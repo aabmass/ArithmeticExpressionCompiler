@@ -2,20 +2,29 @@
 
 #include <memory>
 #include "number.hpp"
+#include "plus.hpp"
+#include "evalvisitor.hpp"
 
 int main(int argc, char *argv[]) { 
     using namespace AEC;
 
-    Number<double> n(2);
+    auto n1 = std::make_shared<Number<double>>(2);
+    auto n2 = std::make_shared<Number<double>>(3);
+
+    auto p1 = std::make_shared<Plus<double>>(n1, n2);
+
+    EvalVisitor<double> eval;
 
     try {
-        n.getChild(1);
+        n1->getChild(1);
     }
     catch(NoChildNodeError const& e) {
         std::cout << "Caught expected error!!: " << e.what() << std::endl;
     }
 
-    std::cout << "Here is a number: " << n << std::endl;
+    p1->accept(eval);
+
+    std::cout << "result is " << eval.getResult() << std::endl;
 
     return 0;
 }

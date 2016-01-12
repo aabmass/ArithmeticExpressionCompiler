@@ -13,7 +13,7 @@ namespace AEC {
 
         }
 
-        virtual std::shared_ptr<Node> getChild(std::size_t i) = 0;
+        virtual std::shared_ptr<Node> getChild(std::size_t i) const = 0;
         virtual void setChild(std::shared_ptr<Node> node, std::size_t i) = 0;
         virtual std::string asString() const = 0;
 
