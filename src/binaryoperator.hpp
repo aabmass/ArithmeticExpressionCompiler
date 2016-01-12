@@ -40,14 +40,13 @@ namespace AEC {
             (i == 0 ? left : right) = node;
         }
 
-        virtual std::string asString() const = 0;
-
         /* accept a visitor */
         virtual void accept(Visitor<NumberType>& v) {
             v.visitBinaryOperator(*this);
         }
-    };
 
+        virtual NumberType perform(NumberType left, NumberType right) = 0;
+    };
 }
 
 #endif /* end of include guard: BINARYOPERATOR_HPP_PP1ZJYK0 */
