@@ -2,6 +2,7 @@
 #define PLUS_HPP_PDIGUZYT
 
 #include "binaryoperator.hpp"
+#include <ostream>
 
 namespace AEC {
     template<typename NumberType>
@@ -9,8 +10,8 @@ namespace AEC {
     public:
         using BinaryOperator<NumberType>::BinaryOperator;
 
-        virtual std::string asString() const {
-            return "+";
+        virtual std::ostream& outputString(std::ostream& os) const {
+            return os << "+";
         }
 
         virtual NumberType perform(NumberType left, NumberType right) const {

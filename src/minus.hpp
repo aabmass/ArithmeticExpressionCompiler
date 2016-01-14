@@ -1,7 +1,8 @@
-#ifndef PLUS_HPP_PDIGUZYT
-#define PLUS_HPP_PDIGUZYT
+#ifndef MINUS_HPP_XTQS0HIC
+#define MINUS_HPP_XTQS0HIC
 
 #include "binaryoperator.hpp"
+#include <ostream>
 
 namespace AEC {
     template<typename NumberType>
@@ -9,8 +10,8 @@ namespace AEC {
     public:
         using BinaryOperator<NumberType>::BinaryOperator;
 
-        virtual std::string asString() const {
-            return "-";
+        virtual std::ostream& outputString(std::ostream& os) const {
+            return os << "-";
         }
 
         virtual NumberType perform(NumberType left, NumberType right) const {
@@ -19,4 +20,4 @@ namespace AEC {
     };
 }
 
-#endif /* end of include guard: PLUS_HPP_PDIGUZYT */
+#endif /* end of include guard: MINUS_HPP_XTQS0HIC */

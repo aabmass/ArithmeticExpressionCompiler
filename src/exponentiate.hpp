@@ -1,7 +1,9 @@
-#ifndef PLUS_HPP_PDIGUZYT
-#define PLUS_HPP_PDIGUZYT
+#ifndef EXPONENTIATE_HPP_UK24TBWI
+#define EXPONENTIATE_HPP_UK24TBWI
 
 #include "binaryoperator.hpp"
+#include <cmath>
+#include <ostream>
 
 namespace AEC {
     template<typename NumberType>
@@ -9,14 +11,14 @@ namespace AEC {
     public:
         using BinaryOperator<NumberType>::BinaryOperator;
 
-        virtual std::string asString() const {
-            return "^";
+        virtual std::ostream& outputString(std::ostream& os) const {
+            return os << "^";
         }
 
         virtual NumberType perform(NumberType left, NumberType right) const {
-            return left ^ right;
+            return std::pow(left, right);
         }
     };
 }
 
-#endif /* end of include guard: PLUS_HPP_PDIGUZYT */
+#endif /* end of include guard: EXPONENTIATE_HPP_UK24TBWI */

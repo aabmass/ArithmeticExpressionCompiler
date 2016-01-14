@@ -15,7 +15,7 @@ namespace AEC {
 
         virtual std::shared_ptr<Node> getChild(std::size_t i) const = 0;
         virtual void setChild(std::shared_ptr<Node> node, std::size_t i) = 0;
-        virtual std::string asString() const = 0;
+        virtual std::ostream& outputString(std::ostream& os) const = 0;
 
         /* accept a visitor */
         virtual void accept(Visitor<NumberType>& v) = 0;
@@ -24,8 +24,7 @@ namespace AEC {
     /* not sure if this is the best place for this... */
     template<typename NumberType>
     std::ostream& operator<<(std::ostream& os, Node<NumberType> const& node) {
-        os << node.asString();
-        return os;
+        return node.outputString(os);
     }
 
 }
