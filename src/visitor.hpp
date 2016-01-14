@@ -21,7 +21,6 @@ namespace AEC {
         virtual void visitNumber(Number<NumberType> const& num) = 0;
         virtual void visitBinaryOperator(BinaryOperator<NumberType> const& num) = 0;
     };
-
-};
+}
 
 #endif /* end of include guard: VISITOR_HPP_DVSHTKKU */

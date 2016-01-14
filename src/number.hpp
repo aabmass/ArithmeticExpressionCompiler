@@ -16,17 +16,21 @@ namespace AEC {
             num(num)
         { }
 
-        virtual std::shared_ptr<Node<NumberType>> getChild() {
+        NumberType getNumber() const {
+            return num;
+        }
+
+        virtual std::shared_ptr<Node<NumberType>> getChild(std::size_t) const {
             // return a nullptr, no children
-            throw NoChildNodeError("Number node's do not have any children to get or set");
+            throw NoChildNodeError("Number nodes do not have any children to get or set");
         }
 
         virtual void setChild(std::shared_ptr<Node<NumberType>>, std::size_t) {
-            throw NoChildNodeError("Number node's do not have any children to get or set");
+            throw NoChildNodeError("Number nodes do not have any children to get or set");
         }
 
-        virtual std::string asString() const {
-            return std::to_string(num);
+        virtual std::ostream& outputString(std::ostream& os) const {
+            return os << num;
         }
 
         /* accept a visitor */
@@ -34,6 +38,6 @@ namespace AEC {
             v.visitNumber(*this);
         }
     };
-};
+}
 
 #endif /* end of include guard: NUMBER_HPP_6HCA1OB7 */  
