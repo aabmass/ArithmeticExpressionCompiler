@@ -34,7 +34,7 @@ namespace AEC {
             checkAndEliminatePatterns(possibleTokens, buf.str());
 
             if (possibleTokens.empty())
-                throw SymbolNotFoundError(buf.str());
+                throw InvalidTokenError(buf.str());
         }
 
         while (this->is >> nextChar && !possibleTokens.empty()) {
