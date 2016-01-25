@@ -1,6 +1,7 @@
 #include "lexer.hpp"
 #include "token.hpp"
 #include "tokenpattern.hpp"
+#include "symbolnotfounderror.hpp"
 
 #include <iostream>
 #include <sstream>
@@ -33,7 +34,7 @@ namespace AEC {
             checkAndEliminatePatterns(possibleTokens, buf.str());
 
             if (possibleTokens.empty())
-                throw SyntaxError();
+                throw SymbolNotFoundError(buf.str());
         }
 
         while (this->is >> nextChar && !possibleTokens.empty()) {
